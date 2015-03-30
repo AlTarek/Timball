@@ -92,7 +92,7 @@ public class ActivityDetailPlace extends ActionBarActivity implements OnClickLis
 	private TextView lblPlaceName, lblAddress, lblPhone, lblWebsite, lblNoResult, lblAlert, lbldate, lblstime, lbletime, lbl_players;
 	private ImageView imgThumbnail;
 	private LinearLayout lytMedia, lytRetry, lytDetail;
-	private Button btnRetry, btn_join_game;
+	private Button btnRetry, btn_join_game, btn_leave_game;
 	private ImageButton imgBtnShare, imgBtnDirection;
 //	private Spinner sp_no_players;
 	// Declare object to handle map
@@ -151,10 +151,11 @@ public class ActivityDetailPlace extends ActionBarActivity implements OnClickLis
 		
 		lbldate		= (TextView) findViewById(R.id.lbldate);
 		lblstime	= (TextView) findViewById(R.id.lblstime);
-		lbletime	= (TextView) findViewById(R.id.lbletime);
 		lbl_players = (TextView) findViewById(R.id.lbl_players);
 		
 		btn_join_game = (Button) findViewById(R.id.btn_join_game); 
+		btn_leave_game = (Button) findViewById(R.id.btn_leave_game);
+		btn_leave_game.setVisibility(View.GONE);
 	//	sp_no_players = (Spinner) findViewById(R.id.sp_no_players);
 	//	sp_no_players.setSelection(0);
 		
@@ -237,7 +238,7 @@ public class ActivityDetailPlace extends ActionBarActivity implements OnClickLis
 
 			game_type = lblWebsite.getText().toString();
 			pd = new ProgressDialog(ActivityDetailPlace.this);
-			pd.setTitle("Joing Game..");
+			pd.setTitle("Joining Game..");
 			pd.setMessage("Please wait...");
 			pd.setCancelable(false);
 			pd.show();
@@ -291,7 +292,7 @@ public class ActivityDetailPlace extends ActionBarActivity implements OnClickLis
 				//	Toast.makeText(getBaseContext(), dec_players + " Players Needed Now ", Toast.LENGTH_SHORT).show();
 					lbl_players.setText(dec_players+" Players Needed");
 					btn_join_game.setVisibility(View.GONE);
-					
+					btn_leave_game.setVisibility(View.VISIBLE);
 					if(dec_players==0){
 						dec_players=0;
 					//	btn_join_game.setEnabled(false);
@@ -309,6 +310,8 @@ public class ActivityDetailPlace extends ActionBarActivity implements OnClickLis
 			
 		}
 	}
+	
+	
 	
 	// AsyncTask to Get Data from Server and put it on View Object
 	public class getDataAsync extends AsyncTask<Void, Void, Void>{
