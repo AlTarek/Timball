@@ -51,7 +51,7 @@ public class UserFunctions {
 	private final String service_login	  	  	  = "login.php?";
 	private final String service_signup  	  	  = "signup.php?";
 	private final String service_join_game  	  = "api_join_game.php?";
-	private final String service_get_game  	  = "get_user_game.php?";
+	private final String service_get_game  	  	  = "get_user_game.php?";
 	private final String service_get_location  	  = "get_user_location.php?";
 	
 	// Param
