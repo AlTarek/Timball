@@ -79,7 +79,7 @@ public class ActivityBrowser extends ActionBarActivity implements OnClickListene
      	actionbar.setDisplayHomeAsUpEnabled(true);  
      	actionbar.setTitle(Html.fromHtml(mGetDealTitle));  
 
-     	// Connecct view object and xml ids
+     	// Connect view object and xml ids
         web 			= (WebView) findViewById(R.id.web);
         prgPageLoading  = (ProgressBar) findViewById(R.id.prgPageLoading);
         lytRetry 	  	= (LinearLayout) findViewById(R.id.lytRetry);

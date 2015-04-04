@@ -51,7 +51,7 @@ public class UserFunctions {
 	private final String service_login	  	  	  = "login.php?";
 	private final String service_signup  	  	  = "signup.php?";
 	private final String service_join_game  	  = "api_join_game.php?";
-	private final String service_get_game  	  	  = "get_user_game.php?";
+	private final String service_get_game  	  = "get_user_game.php?";
 	private final String service_get_location  	  = "get_user_location.php?";
 	
 	// Param
@@ -180,6 +180,17 @@ public class UserFunctions {
 	}
 	
 	public String joingame(String email,String game_type, String players, String location_id, String loc_name){
+		try {
+			game_type = URLEncoder.encode(game_type, "utf-8");
+			loc_name = URLEncoder.encode(loc_name, "utf-8");
+		} catch (UnsupportedEncodingException e1) { e1.printStackTrace(); }
+		webService = URLWS+service_join_game+param_email+email+"&"+param_game_type+game_type+"&"+param_players+players+"&"+param_location_id+location_id+"&"+param_loc_name+loc_name;
+		//Toast.makeText(cntxt.getApplicationContext(), webService, Toast.LENGTH_LONG).show();
+		String res = jsonParser.getStringFromUrl(webService);
+		return res;
+	}
+	
+	public String leavegame(String email,String game_type, String players, String location_id, String loc_name){
 		try {
 			game_type = URLEncoder.encode(game_type, "utf-8");
 			loc_name = URLEncoder.encode(loc_name, "utf-8");

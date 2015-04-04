@@ -1,8 +1,67 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="@color/content_background"
-    >
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray" >
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+		<ProgressBar 
+		    android:id="@+id/prgPageLoading"
+		    android:layout_width="fill_parent"
+		    android:layout_height="@dimen/height_progressbar"
+		    android:layout_alignParentTop="true"
+		    style="@android:style/Widget.ProgressBar.Horizontal"
+		    android:progressDrawable="@drawable/progress_horizontal_apptheme"
+		    android:visibility="gone"/>
+	    <WebView
+		    android:id="@+id/web"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:layout_below="@+id/prgPageLoading"
+		    android:scrollbarStyle="insideInset"
+		    android:scrollbars="none"/>
+
+	    <Button
+	        android:id="@+id/btn_logout"
+	        style="@android:style/TextAppearance.Medium"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="58dp"
+	        android:background="@drawable/apptheme_btn_default_holo_light"
+	        android:text="Logout"
+	        android:textColor="@color/btn_txt" />
+	    
+	</RelativeLayout>
+	<LinearLayout 
+	        android:id="@+id/lytRetry"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical"
+	       	android:layout_centerInParent="true"
+	       	android:gravity="center"
+	       	android:visibility="gone">
+	        <TextView  
+			    android:id="@+id/lblAlert"
+			    android:text="@string/no_internet_connection"
+			    android:textColor="@color/text_sub_title"
+    		    android:gravity="center"
+			    android:layout_width="wrap_content"    
+			    android:layout_height="wrap_content"
+			    style="@android:style/TextAppearance.Medium"/>
+	        <Button 
+		        android:id="@+id/btnRetry"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="@string/retry"
+		        android:textColor="@color/btn_txt"
+		        android:background="@drawable/apptheme_btn_default_holo_light"
+			   	style="@android:style/TextAppearance.Medium"/>
+    </LinearLayout>
+
 
     <LinearLayout android:orientation="vertical" android:id="@+id/main_layout" android:layout_width="match_parent" 
         android:layout_height="wrap_content" android:layout_marginTop="20dp"  android:padding="@dimen/padding_detail_info">
@@ -34,19 +93,6 @@
             <TextView android:id="@+id/lbl_location" android:layout_width="0dp" android:layout_height="wrap_content"
 	        	android:text="" android:layout_gravity="center_horizontal" android:layout_weight=".65"/>
         </LinearLayout>
-                
-       
-        
-       
-        
-        
-        
-        <Button android:id="@+id/btn_logout" 
-             android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/margin_share"
-             android:background="@drawable/apptheme_btn_default_holo_light"
-	        android:textColor="@color/btn_txt"
-	        style="@android:style/TextAppearance.Medium"
-            android:layout_gravity="center_horizontal" android:text="Logout"/>
     </LinearLayout>
     
 
